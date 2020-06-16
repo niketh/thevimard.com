@@ -18,4 +18,5 @@ artifacts:
   files:
     - website/target/lib/*
     - scripts/*
+    - appspec.yml
     - website/target/website-1.0-SNAPSHOT.jar
