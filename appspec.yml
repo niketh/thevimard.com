@@ -1,0 +1,29 @@
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    destination: /home/ubuntu/server
+
+# Add permissions
+#permissions:
+#  - object: /
+#    pattern: "**"
+#    owner: ec2-user
+#    group: ec2-user
+
+# TODO Use ec2 user and not ubuntu
+# TODO Add validation step later
+hooks:
+  ApplicationStop:
+    - location: scripts/stop.sh
+      timeout: 20
+      runas: ubuntu
+  ApplicationStart:
+    - location: scripts/start.sh
+      timeout: 20
+      runas: ubuntu
+  ValidateService:
+    - location: echo "validated"
+      timeout: 120
+      runas: ubuntu

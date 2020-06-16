@@ -16,4 +16,6 @@ phases:
       - echo Build completed on `date`
 artifacts:
   files:
+    - website/target/lib/*
+    - scripts/*
     - website/target/website-1.0-SNAPSHOT.jar
